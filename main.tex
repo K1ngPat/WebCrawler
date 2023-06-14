@@ -48,6 +48,7 @@ The link-follower web scraper provides the following functionality:
   \item Displays the sorted links or writes them to an output file, depending on the -o option.
   \item Optionally generates and displays a site graph based on the extracted links. The graph is plotted using the spring layout method provided within the \texttt{networkx} \cite{networkx} module.
 \end{itemize}
+A point to be noted is that the majority of running time is spent in sending and receiving requests to the website involved, and most of the memory used is to store the URLs, both of which are essential to the program. Any minor optimisation (such as not storing edges when -g is not enabled) does not change the computational complexity of the base logic. Due to these reasons, it is non-beneficial to optimise this script further.
 
 \section{Example Usage}
 Here is an example command to run the link-follower web scraper:
