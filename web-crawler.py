@@ -189,6 +189,13 @@ for i, j in args:
     elif i == "-g":
         to_draw = True
 
+if head_url == "":
+    print("ERROR: No url given.")
+    sys.exit()
+
+if dep<=0:
+    print("ERROR: Invalid threshold, must be positive integer.")
+
 
 vtdurls, gredge = crawl(head_url, depth=dep)
 stsurl = sort_urls(vtdurls)

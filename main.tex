@@ -1,0 +1,65 @@
+\documentclass{article}
+
+\usepackage{natbib} % Package for bibliography management
+
+\title{Python Web Crawler Documentation}
+\author{Pratik Sahoo}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+The link-following web crawler \cite{link_follower} is a Python program that extracts links from a given webpage and follows those links to extract further links from subsequent pages. It provides functionalities for crawling webpages up to a specified depth and sorting the extracted links based on file types. Furthermore, it also has the functionality to plot a site map based on links between pages.
+
+\section{Usage}
+To use the link-follower web scraper, run the Python script with the following command-line arguments:
+
+\begin{itemize}
+  \item \texttt{-u <start\_url>}: Specifies the starting URL for the web scraping process. If left empty, shows error message.
+  \item \texttt{-t <depth>}: Specifies the depth to which the scraper will follow links (default is 2). If invalid threshold is given, shows error message. 
+  \item \texttt{-o <output\_file>}: Specifies the output file to which the extracted links will be written. If not used, output written to \texttt{stdout}.
+  \item \texttt{-g}: Optional flag to generate and display a (zoomable) site graph based on the extracted links, using texttt{matplotlib}.
+\end{itemize}
+
+\section{Dependencies}
+The link-follower web scraper requires the following Python libraries:
+
+\begin{itemize}
+  \item \texttt{requests}
+  \item \texttt{beautifulsoup4} \cite{richardson2007}
+  \item \texttt{urllib.parse}
+  \item \texttt{time}
+  \item \texttt{getopt}
+  \item \texttt{sys}
+  \item \texttt{networkx} \cite{networkx}
+  \item \texttt{matplotlib}
+\end{itemize}
+
+Make sure you have these libraries installed in your Python environment before running the script.
+
+\section{Functionality}
+The link-follower web scraper provides the following functionality:
+
+\begin{itemize}
+  \item Extracts links from a given http webpage, using a function utilizing beautifulsoup4 \cite{richardson2007} functions.
+  \item Follows the extracted links to subsequent http pages (within the same domain).
+  \item Sorts the extracted links based on file types (e.g., HTML, CSS, images, scripts, etc.).
+  \item Displays the sorted links or writes them to an output file, depending on the -o option.
+  \item Optionally generates and displays a site graph based on the extracted links. The graph is plotted using the spring layout method provided within the \texttt{networkx} \cite{networkx} module.
+\end{itemize}
+
+\section{Example Usage}
+Here is an example command to run the link-follower web scraper:
+
+\begin{verbatim}
+python link_follower.py -u http://example.com -t 3 -o out.txt -g
+\end{verbatim}
+
+This command starts the web scraping process from \texttt{http://example.com}, follows links up to a depth of 3, writes the extracted links to \texttt{out.txt}, and generates a site graph.
+
+\section{References}
+\bibliographystyle{plain} % Set the bibliography style
+\bibliography{references} % Specify the BibTeX file
+
+\end{document}
